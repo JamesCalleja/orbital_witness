@@ -3,19 +3,19 @@ services:
   auth-api:
     image: jamescalleja/auth-api:latest
     networks:
-      - webapp
+      - owapp
     ports:
       - "5000:5000"
   ocr-worker:
     image: jamescalleja/ocr-worker:latest
     networks:
-      - webapp
+      - owapp
     depends_on:
       - auth-api
   order-api:
     image: jamescalleja/order-api:latest
     networks:
-      - webapp
+      - owapp
     depends_on:
       - auth-api
       - ocr-worker
@@ -24,7 +24,7 @@ services:
     ports:
       - "63790:6379"
     networks:
-      - webapp
+      - owapp
 networks:
-  webapp:
+  owapp:
     driver: bridge
