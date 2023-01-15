@@ -4,8 +4,6 @@ services:
     image: jamescalleja/auth-api:latest
     networks:
       - owapp
-    # ports:
-    #   - "5000:5000"
   ocr-worker:
     image: jamescalleja/ocr-worker:latest
     networks:
