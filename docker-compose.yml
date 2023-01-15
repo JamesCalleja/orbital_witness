@@ -33,7 +33,6 @@ services:
       - "8404:8404"
     volumes:
     - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
-    #- ./certs/vizlib.pem:/usr/local/etc/ssl/vizlib.pem
     command:
       - /bin/sh
       - -c
