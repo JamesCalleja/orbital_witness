@@ -73,8 +73,3 @@ Don't worry too much about making this production ready. We may discuss producti
 [auth api]: auth-api
 [order api]: order-api
 [ocr worker]: ocr-worker
-
-
-
-docker build . -t jamescalleja/auth-api:latest
-docker push jamescalleja/auth-api:latest  
