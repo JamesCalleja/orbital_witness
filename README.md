@@ -6,7 +6,7 @@ I have set up a git hub actions CI pipeline that will build 3 images on commit t
 
 The application can be hit by running:
 
-  http --form post http://localhost/token     username=alice password=password
+  http --form post http://localhost/auth username=alice password=password
 
   http --form post http://localhost/orders     title_number=OW12345678     document_type=lease    token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFsaWNlIiwiY2FuX3RyYW5zYWN0Ijp0cnVlLCJleHAiOjE2NzMyODYxNTh9.gOaA5omC38CtHJmNArJBv-3Ej2J3hInS_3d6LUluxKk
 
