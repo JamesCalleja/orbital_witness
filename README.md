@@ -1,5 +1,11 @@
 # Orbital Witness DevOps Interview Test
 
+## Solution
+
+I have set up a git hub actions CI pipeline that will build 3 images on commit to main to this repo and push them to docker hub. End users can stand up a local environment by using the docker compose file by running 'docker commpose up' 
+
+The application can be hit by running 'http --form post http://localhost/token     username=alice password=password'
+
 ## Background
 
 Orbital Witness is a building a document ordering and processing system using software-oriented architecture principles.
