@@ -4,8 +4,8 @@ services:
     image: jamescalleja/auth-api:latest
     networks:
       - owapp
-    ports:
-      - "5000:5000"
+    # ports:
+    #   - "5000:5000"
   ocr-worker:
     image: jamescalleja/ocr-worker:latest
     networks:
@@ -22,8 +22,6 @@ services:
       - ocr-worker
   redis-queue:
     image: redis
-    ports:
-      - "63790:6379"
     networks:
       - owapp
   haproxy:
