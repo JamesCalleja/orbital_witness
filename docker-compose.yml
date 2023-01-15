@@ -12,6 +12,7 @@ services:
       - owapp
     depends_on:
       - auth-api
+      - redis-queue
   order-api:
     image: jamescalleja/order-api:latest
     networks:
@@ -25,6 +26,28 @@ services:
       - "63790:6379"
     networks:
       - owapp
+  haproxy:
+    image: haproxy:latest
+    ports:
+      - "80:80"
+      - "8404:8404"
+    volumes:
+    - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    #- ./certs/vizlib.pem:/usr/local/etc/ssl/vizlib.pem
+    command:
+      - /bin/sh
+      - -c
+      - |
+        whoami
+        cat  /usr/local/etc/haproxy/haproxy.cfg
+        haproxy -v 
+        haproxy  -f /usr/local/etc/haproxy/haproxy.cfg -p /run/haproxy.pid -db
+    networks:
+      - owapp
+    depends_on:
+      - auth-api
+      - ocr-worker
+      - order-api
 networks:
   owapp:
     driver: bridge
